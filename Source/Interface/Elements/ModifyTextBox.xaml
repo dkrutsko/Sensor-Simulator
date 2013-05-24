@@ -1,0 +1,58 @@
+﻿<!--////////////////////////////////////////////////////////////////////////////
+// ========================================================================== //
+//                                                                            //
+//                          Copyright (C) 2011-2013                           //
+//                            github.com/dkrutsko                             //
+//                            github.com/AbsMechanik                          //
+//                                                                            //
+//                        See LICENSE.md for copyright                        //
+//                                                                            //
+// ========================================================================== //
+/////////////////////////////////////////////////////////////////////////////-->
+
+<UserControl
+	x:Class = "Simulator.ModifyTextBox"
+	xmlns:l = "clr-namespace:Simulator"
+	xmlns   = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml"
+	
+	MouseMove="ActionMouseMove"
+	MouseLeftButtonDown="ActionMouseDown" MouseLeftButtonUp="ActionMouseUp">
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Resources                                                                  //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<UserControl.Resources>
+
+		<!--////////////////////////////////////////////////////////////////////////////
+		// Brushes                                                                    //
+		/////////////////////////////////////////////////////////////////////////////-->
+		
+		<SolidColorBrush x:Key="uiEnterBrush"  Color="#D0000000" />
+		<SolidColorBrush x:Key="uiLeaveBrush"  Color="#A0000000" />
+		<SolidColorBrush x:Key="uiSliderBrush" Color="#40000000" />
+		
+	</UserControl.Resources>
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Main                                                                       //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+    <Grid>
+		
+		<TextBox Name="uiTextBox" Focusable="False" PreviewKeyUp="ActionPreviewKeyUp"
+				 ContextMenu="{x:Null}" PreviewTextInput="ActionPreviewTextInput" Cursor="Arrow" />
+		
+		<Border Name="uiSlider" HorizontalAlignment="Left" Width="0"
+				CornerRadius="0, 7, 7, 0" Background="{StaticResource uiSliderBrush}" />
+		
+		<Label Name="uiDescription" HorizontalAlignment="Right" VerticalAlignment="Center"
+			   Foreground="{StaticResource uiLeaveBrush}" Margin="0, 0, 10, 0" />
+            
+    </Grid>
+</UserControl>

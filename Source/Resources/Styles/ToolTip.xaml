@@ -1,0 +1,31 @@
+﻿<!--////////////////////////////////////////////////////////////////////////////
+// ========================================================================== //
+//                                                                            //
+//                          Copyright (C) 2011-2013                           //
+//                            github.com/dkrutsko                             //
+//                            github.com/AbsMechanik                          //
+//                                                                            //
+//                        See LICENSE.md for copyright                        //
+//                                                                            //
+// ========================================================================== //
+/////////////////////////////////////////////////////////////////////////////-->
+
+<ResourceDictionary
+	xmlns   = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Main Style                                                                 //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<Style x:Key="uiStyleToolTip" TargetType="{x:Type ToolTip}" BasedOn="{StaticResource uiStyleBase}">
+		
+		<Setter Property="FontSize"   Value="15"        />
+		<Setter Property="Foreground" Value="#FF363636" />
+		<Setter Property="Background" Value="#FFEAECF2" />
+		
+	</Style>
+	
+</ResourceDictionary>

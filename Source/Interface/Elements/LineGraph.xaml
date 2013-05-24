@@ -1,0 +1,166 @@
+﻿<!--////////////////////////////////////////////////////////////////////////////
+// ========================================================================== //
+//                                                                            //
+//                          Copyright (C) 2011-2013                           //
+//                            github.com/dkrutsko                             //
+//                            github.com/AbsMechanik                          //
+//                                                                            //
+//                        See LICENSE.md for copyright                        //
+//                                                                            //
+// ========================================================================== //
+/////////////////////////////////////////////////////////////////////////////-->
+
+<UserControl
+	x:Class = "Simulator.LineGraph"
+	xmlns   = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Resources                                                                  //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<UserControl.Resources>
+
+		<!--////////////////////////////////////////////////////////////////////////////
+		// Fade In Storyboard                                                         //
+		/////////////////////////////////////////////////////////////////////////////-->
+		
+		<Storyboard x:Key="uiStoryboardFadeIn">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="1" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+
+
+
+		<!--////////////////////////////////////////////////////////////////////////////
+		// Fade Out Storyboard                                                        //
+		/////////////////////////////////////////////////////////////////////////////-->
+		
+		<Storyboard x:Key="uiStoryboardFadeOut">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0" />
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		
+	</UserControl.Resources>
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Main                                                                       //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<Grid Name="uiGridMain"
+		  MouseMove="ActionMouseMove"
+		  MouseEnter="ActionMouseEnter"
+		  MouseLeave="ActionMouseLeave">
+		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition Height="*"    />
+			<RowDefinition Height="*"    />
+			<RowDefinition Height="*"    />
+			<RowDefinition Height="*"    />
+			<RowDefinition Height="*"    />
+			<RowDefinition Height="Auto" />
+		</Grid.RowDefinitions>
+			
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+			<ColumnDefinition Width="*" />
+		</Grid.ColumnDefinitions>
+		
+		<Rectangle Grid.Row="1" Grid.ColumnSpan="9" Fill="#FFD1B919" />
+		<Rectangle Grid.Row="2" Grid.ColumnSpan="9" Fill="#FFDB8516" />
+		<Rectangle Grid.Row="3" Grid.ColumnSpan="9" Fill="#FFCE432E" />
+		<Rectangle Grid.Row="4" Grid.ColumnSpan="9" Fill="#FF96104D" />
+		<Rectangle Grid.Row="5" Grid.ColumnSpan="9" Fill="#FF621354" />
+		
+		<Border Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="9" BorderBrush="#C0FFFFFF" BorderThickness="2" />
+		
+		<Border Grid.Row="1" Grid.RowSpan="5" Grid.Column="1" BorderBrush="#80FFFFFF" BorderThickness="1, 0, 1, 0" />
+		<Border Grid.Row="1" Grid.RowSpan="5" Grid.Column="3" BorderBrush="#80FFFFFF" BorderThickness="1, 0, 1, 0" />
+		<Border Grid.Row="1" Grid.RowSpan="5" Grid.Column="5" BorderBrush="#80FFFFFF" BorderThickness="1, 0, 1, 0" />
+		<Border Grid.Row="1" Grid.RowSpan="5" Grid.Column="7" BorderBrush="#80FFFFFF" BorderThickness="1, 0, 1, 0" />
+		
+		<Label Grid.Row="6" Grid.Column="0" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="1" />
+		<Label Grid.Row="6" Grid.Column="1" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="2" />
+		<Label Grid.Row="6" Grid.Column="2" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="3" />
+		<Label Grid.Row="6" Grid.Column="3" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="4" />
+		<Label Grid.Row="6" Grid.Column="4" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="5" />
+		<Label Grid.Row="6" Grid.Column="5" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="6" />
+		<Label Grid.Row="6" Grid.Column="6" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="7" />
+		<Label Grid.Row="6" Grid.Column="7" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="8" />
+		<Label Grid.Row="6" Grid.Column="8" FontSize="16" Margin="-9, 0,  0, 0" Foreground="#FFFFFFFF" Content="9" />
+		<Label Grid.Row="6" Grid.Column="9" FontSize="16" Margin=" 0, 0, -9, 0" Foreground="#FFFFFFFF" Content="10" HorizontalAlignment="Right" />
+		
+		<Canvas Name="uiCanvas" Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="9" />
+		
+		<Border Grid.Row="1" Grid.ColumnSpan="9" Name="uiBorder1" Background="#30000000" Opacity="0" />
+		<Border Grid.Row="2" Grid.ColumnSpan="9" Name="uiBorder2" Background="#50000000" Opacity="0" />
+		<Border Grid.Row="3" Grid.ColumnSpan="9" Name="uiBorder3" Background="#70000000" Opacity="0" />
+		<Border Grid.Row="4" Grid.ColumnSpan="9" Name="uiBorder4" Background="#90000000" Opacity="0" />
+		<Border Grid.Row="5" Grid.ColumnSpan="9" Name="uiBorder5" Background="#B0000000" Opacity="0" />
+
+
+
+		<!--////////////////////////////////////////////////////////////////////////////
+		// Graph Data                                                                 //
+		/////////////////////////////////////////////////////////////////////////////-->
+		
+		<Grid Grid.Row="1" Grid.RowSpan="5" Grid.ColumnSpan="9" Margin="14" Opacity="0"
+			  Name="uiGraphData" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+			
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="60"   />
+				<ColumnDefinition Width="20"   />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="60"   />
+				<ColumnDefinition Width="20"   />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="60"   />
+				<ColumnDefinition Width="20"   />
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="60"   />
+			</Grid.ColumnDefinitions>
+			
+			<Label Grid.Row="0" Grid.Column="0" Foreground="White" FontSize="20" Content="Trials"  />
+			<Label Grid.Row="1" Grid.Column="0" Foreground="White" FontSize="20" Content="Sensors" />
+			<Label Grid.Row="0" Grid.Column="3" Foreground="White" FontSize="20" Content="Angle"   />
+			<Label Grid.Row="1" Grid.Column="3" Foreground="White" FontSize="20" Content="Range"   />
+			
+			<Label Grid.Row="0" Grid.Column="6" Foreground="White" FontSize="20" Content="Missed"   />
+			<Label Grid.Row="1" Grid.Column="6" Foreground="White" FontSize="20" Content="Avg Diff" />
+			<Label Grid.Row="0" Grid.Column="9" Foreground="White" FontSize="20" Content="Avg Dir"  />
+			<Label Grid.Row="1" Grid.Column="9" Foreground="White" FontSize="20" Content="Avg Omni" />
+			
+			<Label Grid.Row="0" Grid.Column="1" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxTrials"  />
+			<Label Grid.Row="1" Grid.Column="1" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxSensors" />
+			<Label Grid.Row="0" Grid.Column="4" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxAngle"   />
+			<Label Grid.Row="1" Grid.Column="4" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxRange"   />
+			
+			<Label Grid.Row="0" Grid.Column="7"  Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxMissed"  />
+			<Label Grid.Row="1" Grid.Column="7"  Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxAvgDiff" />
+			<Label Grid.Row="0" Grid.Column="10" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxAvgDir"  />
+			<Label Grid.Row="1" Grid.Column="10" Foreground="White" FontSize="20" Content="0" IsEnabled="False" Name="uiTextBoxAvgOmni" />
+			
+		</Grid>
+	</Grid>
+	
+</UserControl>

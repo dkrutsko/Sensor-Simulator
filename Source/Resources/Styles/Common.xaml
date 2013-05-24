@@ -1,0 +1,41 @@
+﻿<!--////////////////////////////////////////////////////////////////////////////
+// ========================================================================== //
+//                                                                            //
+//                          Copyright (C) 2011-2013                           //
+//                            github.com/dkrutsko                             //
+//                            github.com/AbsMechanik                          //
+//                                                                            //
+//                        See LICENSE.md for copyright                        //
+//                                                                            //
+// ========================================================================== //
+/////////////////////////////////////////////////////////////////////////////-->
+
+<ResourceDictionary
+	xmlns   = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml">
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// No Style                                                                   //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<Style x:Key="uiStyleNone" />
+
+
+
+	<!--////////////////////////////////////////////////////////////////////////////
+	// Base Style                                                                 //
+	/////////////////////////////////////////////////////////////////////////////-->
+	
+	<Style x:Key="uiStyleBase" TargetType="{x:Type Control}">
+		
+		<Setter Property="FontSize"					Value="14"					/>
+		<Setter Property="FontFamily"				Value="..\Fonts\#Ebrima"	/>
+		
+		<Setter Property="SnapsToDevicePixels"		Value="True"				/>
+		<Setter Property="FocusVisualStyle"			Value="{x:Null}"			/>
+		
+	</Style>
+	
+</ResourceDictionary>

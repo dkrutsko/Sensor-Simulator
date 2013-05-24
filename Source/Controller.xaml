@@ -1,0 +1,50 @@
+﻿<!--///////////////////////////////////////////////////////////////////////
+// ===================================================================== //
+//                                                                       //
+//   Project: Sensor Simulator                                           //
+//  Filename: Controller.xaml                                            //
+//                                                                       //
+// ===================================================================== //
+////////////////////////////////////////////////////////////////////////-->
+	
+<Application
+	x:Class = "Simulator.Controller" StartupUri="Interface/WndMain.xaml"
+	xmlns   = "http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x = "http://schemas.microsoft.com/winfx/2006/xaml">
+	
+	<Application.Resources>
+		<ResourceDictionary>
+			
+			<ResourceDictionary.MergedDictionaries>
+				
+				<!-- Metro User Interface -->
+				<ResourceDictionary Source="Resources/Styles/Common.xaml"		/>
+				<ResourceDictionary Source="Resources/Styles/Button.xaml"		/>
+				<ResourceDictionary Source="Resources/Styles/ScrollViewer.xaml"	/>
+				<ResourceDictionary Source="Resources/Styles/TextBox.xaml"		/>
+				<ResourceDictionary Source="Resources/Styles/ToolTip.xaml"		/>
+				
+				<!-- Menu Button Icons -->
+				<ResourceDictionary Source="Resources/Icons/About.xaml"			/>
+				<ResourceDictionary Source="Resources/Icons/Clear.xaml"			/>
+				<ResourceDictionary Source="Resources/Icons/Expand.xaml"		/>
+				<ResourceDictionary Source="Resources/Icons/Graph.xaml"			/>
+				<ResourceDictionary Source="Resources/Icons/Random.xaml"		/>
+				<ResourceDictionary Source="Resources/Icons/Short.xaml"			/>
+				<ResourceDictionary Source="Resources/Icons/Stats.xaml"			/>
+				
+			</ResourceDictionary.MergedDictionaries>
+			
+			<Label x:Key="uiCursorHand" Cursor="Resources/Graphics/Hand.cur"	/>
+			<Label x:Key="uiCursorGrab" Cursor="Resources/Graphics/Grab.cur"	/>
+			
+			<Style TargetType="{x:Type Label		}" BasedOn="{StaticResource uiStyleBase		}" />
+			<Style TargetType="{x:Type TextBox		}" BasedOn="{StaticResource uiStyleTextBox	}" />
+			<Style TargetType="{x:Type Button		}" BasedOn="{StaticResource uiStyleButton	}" />
+			<Style TargetType="{x:Type ToggleButton	}" BasedOn="{StaticResource uiStyleButton	}" />
+			<Style TargetType="{x:Type ToolTip		}" BasedOn="{StaticResource uiStyleToolTip	}" />
+			
+		</ResourceDictionary>
+	</Application.Resources>
+	
+</Application>
