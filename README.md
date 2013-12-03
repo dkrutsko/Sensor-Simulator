@@ -1,6 +1,6 @@
 # Sensor Simulator
 
-This application visualizes wireless antenna connectivity by providing an editor for creating and modifying various antenna properties. This results in the ability to determine whether or not constructing an antenna network strictly out of directional sensors is feasible.
+<p align="justify">This application visualizes wireless antenna connectivity by providing an editor for creating and modifying various antenna properties. This results in the ability to determine whether or not constructing an antenna network strictly out of directional sensors is feasible.</p>
 
 ### Authors
 **D. Krutsko**
